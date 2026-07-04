@@ -1,0 +1,54 @@
+@page
+@model Calculo_de_salario.Pages.SalaryCalculator
+@{
+    ViewData["Title"] = "SalaryCalculator";
+}
+
+<div class="calculadora-card themeBlack">
+        <h2>💰 Calculadora de Salário</h2>
+</div>
+<section class=" themeBlack layoutColumn">
+    <div class="layoutRow"> 
+        <div>
+            <form method="post">
+                <div> Digite quanto o colaborador ganha por hora
+                <input id="hourPay" asp-for="hourPay"  placeholder="Salario hora" />
+                </div>
+
+                <div>
+                    Digite a quantidade de horas que o colaborador trabalhou este mês
+                    <input id="hourWork"asp-for="hourWork" placeholder="Horas trabalhadas" />
+                </div>
+                
+                <div>
+                    Digite a quantidade de filhos o colaborador tem
+                    <input id="numberChildren" asp-for="numberChildren" placeholder="quantidade de crianças" />
+                </div>
+                <button type="submit">Adicionar</button>
+            </form>
+        </div>
+        
+        
+    </div><div class="valor-final ">
+            <div>Salario Bruto: <samp> @Model.Salary.CalcSalary()</samp></div >
+            <div>Salario Bruto: <samp>@Model.Salary.CalcSalaryFamily()</samp> </div >  
+            <div>Salario Bruto: <samp>@Model.Salary.CalcSalaryFinal()</samp></div >
+        </div>
+</section>
+
+<script>
+    document.getElementById("hourPay").value = null;
+    document.getElementById("hourWork").value = null;
+    document.getElementById("numberChildren").value = null;
+</script>
+
+
+
+<style>   .calculadora-card {
+   display: flex;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  
+}
+</style>

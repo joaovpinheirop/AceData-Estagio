@@ -1,0 +1,43 @@
+@page
+@model Calculo_de_salario.Pages.NumberSequenci
+@{
+    ViewData["Title"] = "NumberSequenci";
+}
+<div class="calculadora-card themeBlack">
+        <h2>🚩Sequencia de numeros</h2>
+</div>
+<section class="themeBlack layoutColumn">
+    <div>
+        <form method="post">
+        <div>
+            <form method="post">
+                <div>
+                    quantidade de numeros a serem verificados
+                    <input id="numberRepetition" asp-for="numberRepetition" oninput="vetiricarValor()"placeholder="Digite a quantidade" />
+                </div>
+                <div>
+                    digite a sequencia de numeros separando com virgula exemplo (1,2,3,4,5,6...)
+                    <input type="text" asp-for="number">
+                </div>
+                
+                <button type="submit" asp-page-handler="Testar">Testa</button>
+            </form>
+        </div>
+        </form>
+    </div>
+
+<div  class="valor-final "> 
+        <p>Sequencia digitada:<samp> @Model.sequence</samp></p>
+        <p>Maior numero:<samp> @Model.maior</samp></p> 
+        <p>Menor numero: <samp>@Model.menor</p></p>
+</div>
+</section>
+
+<div id="spawn">
+    <samp class="errorSpam"  id="message" > @Model.errorMensagem</samp>
+</div>
+<script>    
+        var valor = document.getElementById("numberRepetition").value = null;
+        var spawn = document.getElementById("spawn");
+        var message = document.getElementById("message").value;
+</script>
