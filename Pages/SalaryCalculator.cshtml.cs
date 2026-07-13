@@ -14,7 +14,12 @@ namespace Calculo_de_salario.Pages
 
         public SalaryCalculatorController Salary = new();
 
-        public void OnPost() // Chamado quando você clica em "Adicionar"
+        public void OnGet()
+        {
+
+        }
+
+        public void OnPost()
         {
             Salary.hourPay = hourPay;
             Salary.hourWork = hourWork;
