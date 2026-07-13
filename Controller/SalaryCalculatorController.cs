@@ -6,10 +6,8 @@ namespace Calculo_de_salario.Controller
         public decimal hourWork { private get; set; }
         public int numberChildren { private get; set; }
 
-        //Calcular Salario Bruto
         public decimal CalcSalary() => hourPay * hourWork;
 
-        //Calcular Salario Familia
         public decimal CalcSalaryFamily()
         {
             decimal salary = CalcSalary();
@@ -22,7 +20,6 @@ namespace Calculo_de_salario.Controller
             return salaryFamily;
         }
 
-        //Calcular salario liquido
         public decimal CalcSalaryFinal()
         {
             decimal salaryFinal = CalcSalary() + CalcSalaryFamily();
