@@ -24,15 +24,15 @@
                     Digite a quantidade de filhos o colaborador tem
                     <input id="numberChildren" asp-for="numberChildren" placeholder="quantidade de crianças" />
                 </div>
-                <button type="submit">Adicionar</button>
+                <button type="submit">Calcular</button>
             </form>
         </div>
         
         
     </div><div class="valor-final ">
             <div>Salario Bruto: <samp> @Model.Salary.CalcSalary()</samp></div >
-            <div>Salario Bruto: <samp>@Model.Salary.CalcSalaryFamily()</samp> </div >  
-            <div>Salario Bruto: <samp>@Model.Salary.CalcSalaryFinal()</samp></div >
+            <div>Salario Familia: <samp>@Model.Salary.CalcSalaryFamily()</samp> </div >  
+            <div>Salario Liquido: <samp>@Model.Salary.CalcSalaryFinal()</samp></div >
         </div>
 </section>
 
