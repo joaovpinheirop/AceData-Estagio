@@ -17,6 +17,7 @@ namespace Calculo_de_salario.Pages
 
         public float maior = 0;
         public float menor = 0;
+        public float segundoMaior = 0;
         public string sequence;
         public string errorMensagem = "";
 
@@ -37,6 +38,7 @@ namespace Calculo_de_salario.Pages
 
                 menor = sequenceAnalyzer.ExtractExtremes(numbers).menor;
                 maior = sequenceAnalyzer.ExtractExtremes(numbers).maior;
+                segundoMaior = sequenceAnalyzer.ExtractExtremes(numbers).segundoMaior;
             }
             else if (!status)
             {

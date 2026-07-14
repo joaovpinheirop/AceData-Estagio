@@ -7,19 +7,27 @@ namespace Calculo_de_salario.Controller
 
         public void AddNumber(float number) => sequence.Add(number);
 
-        // Verificar qual o maior e qual o menor
-        public (float menor, float maior) ExtractExtremes(List<float> sequence)
+        public (float menor, float maior, float segundoMaior) ExtractExtremes(List<float> sequence)
         {
             float maior = sequence[0];
+            float segundoMaior = sequence[0];
             float menor = sequence[0];
 
             foreach (var number in sequence)
             {
                 maior = maior >= number ? maior : number;
                 menor = menor <= number ? menor : number;
-            }
 
-            return (menor, maior);
+                if (segundoMaior < maior && segundoMaior >= menor)
+                {
+                    segundoMaior = segundoMaior;
+                }
+                else
+                {
+                    segundoMaior = number;
+                }
+            }
+            return (menor, maior, segundoMaior);
         }
 
         public List<float> ExtractionSequence(string sequence)
@@ -38,7 +46,6 @@ namespace Calculo_de_salario.Controller
             return newSequence;
         }
 
-        // Valider Requisitos do sistema
         public (bool status, string error) ValidateSequence(string input)
         {
             if (string.IsNullOrEmpty(input))

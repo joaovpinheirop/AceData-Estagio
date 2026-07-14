@@ -8,7 +8,7 @@ namespace Calculo_de_salario.Controller
 
         public (bool status, string message) VerifyFibonacci(int number)
         {
-            var eq1 = 5 * (Math.Pow(number, 2)) - 4;
+            var eq1 = 5 * Math.Pow(number, 2) - 4;
             var eq2 = 5 * Math.Pow(number, 2) + 4;
 
             if (Math.Sqrt(eq1) % 1 == 0 || Math.Sqrt(eq2) % 1 == 0)

@@ -30,12 +30,14 @@
         
         
     </div><div class="valor-final ">
-            <div>Salario Bruto: <samp> @Model.Salary.CalcSalary()</samp></div >
-            <div>Salario Familia: <samp>@Model.Salary.CalcSalaryFamily()</samp> </div >  
-            <div>Salario Liquido: <samp>@Model.Salary.CalcSalaryFinal()</samp></div >
+            <div>Salario Bruto: <samp> @Model.salarioBruto</samp></div >
+            <div>Salario Familia: <samp>@Model.salarioFamilia</samp> </div >  
+            <div>Salario Liquido: <samp>@Model.salarioLiquido</samp></div >
         </div>
 </section>
-
+<div id="spawn">
+    <samp class="errorSpam"  id="message" > @Model.message</samp>
+</div>
 <script>
     document.getElementById("hourPay").value = null;
     document.getElementById("hourWork").value = null;

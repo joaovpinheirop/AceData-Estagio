@@ -42,9 +42,15 @@ namespace Calculo_de_salario.Controller
             {
                 return (false, "Não coloque letras nos campos");
             }
+
             if (hourWork.ToString().Any(n => n.ToString().Any(char.IsLetter)))
             {
                 return (false, "Não coloque letras nos campos");
+            }
+
+            if (hourPay < 0)
+            {
+                return (false, "Salario Hora não pode ser negativo");
             }
             return (true, "");
 

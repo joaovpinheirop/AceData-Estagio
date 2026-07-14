@@ -10,6 +10,10 @@ namespace Calculo_de_salario.Pages
         [BindProperty] public decimal hourWork { get; set; }
         [BindProperty] public int numberChildren { get; set; }
 
+        public decimal salarioBruto;
+        public decimal salarioFamilia;
+        public decimal salarioLiquido;
+
         public string message = "";
 
         public SalaryCalculatorController Salary = new();
@@ -21,9 +25,23 @@ namespace Calculo_de_salario.Pages
 
         public void OnPost()
         {
-            Salary.hourPay = hourPay;
-            Salary.hourWork = hourWork;
-            Salary.numberChildren = numberChildren;
+
+            if (Salary.VerifyCalc().status == true)
+            {
+                Salary.hourPay = hourPay;
+                Salary.hourWork = hourWork;
+                Salary.numberChildren = numberChildren;
+
+                salarioBruto = Salary.CalcSalary();
+                salarioFamilia = Salary.CalcSalaryFamily();
+                salarioLiquido = Salary.CalcSalaryFinal();
+            }
+            else
+            {
+                salarioBruto = 0;
+                salarioFamilia = 0;
+                salarioLiquido = 0;
+            }
 
             message = Salary.VerifyCalc().message;
         }
